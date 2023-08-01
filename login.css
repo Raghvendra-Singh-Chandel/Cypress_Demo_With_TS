@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background-image: url('../img/login.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.login-container {
+  text-align: center;
+  border: 1.5px solid #ccc;
+  padding: 20px;
+}
+
+button:hover {
+  background-color: lightblue;
+}
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 10px;
+}
+
+@keyframes scrollImage {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
