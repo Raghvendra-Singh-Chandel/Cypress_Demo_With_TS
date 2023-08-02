@@ -1,6 +1,7 @@
 /// <reference types="cypress"/>
 
 import Login from "../PageMethod/loginPage";
+import * as loginData from "../../fixtures/login.json";
 
 const login = new Login();
 
@@ -15,31 +16,29 @@ namespace Cypress {
 }
 }
 
-Cypress.Commands.add("loginWithValidCredentials", () => {
-    login.getLoginUrl();
-    login.getUsername().clear().type("raghu").should('have.value','raghu')
-    login.getPassword().clear().type("raghu@#1").should('have.value', "raghu@#1");
-    login.getLogin().click();
-    cy.url().should('contain', '/index.html');
-  });
+Cypress.Commands.add("loginWithValidCredentials",()=> {
+  login.getLoginUrl()
+  login.getUsername().clear().type(loginData.username).should('have.value',loginData.username)
+  login.getPassword().clear().type(loginData.password).should('have.value',loginData.password)
+  login.getLogin().click()
+  cy.url().should('contain','/index.html')
+})
 
-Cypress.Commands.add("loginWithInvalidCredentials", () => {
+Cypress.Commands.add("loginWithInvalidCredentials",()=> {
+  login.getLoginUrl()
+  login.getUsername().clear().type(loginData.username).should('have.value',loginData.username)
+  login.getPassword().clear().type("test").should('have.value',"test")
+  login.getLogin().click()
+  login.getValidationMessage().should("have.text",loginData.validationMessage)
+  cy.url().should('not.contain','/index.html')
+})
 
-    login.getLoginUrl();
-    login.getUsername().clear().type("raghu@#1").should('have.value', "raghu@#1");
-    login.getPassword().clear().type("test").should('have.value', "test");
-    login.getLogin().click();
-    login.getValidationMessage().should("have.text", "Invalid Credential, check credential and try again");
-    cy.url().should('not.contain', '/index.html');
-  });
-
-Cypress.Commands.add("verifyFunctionalityOfCancelButton", () => {
- 
-    login.getLoginUrl();
-    login.getUsername().clear().type("raghu").should('have.value','raghu')
-    login.getPassword().clear().type("raghu@#1").should('have.value', "raghu@#1");
-    login.getCancel().click();
-    login.getUsername().should('not.have.value', 'raghu');
-    login.getPassword().should('not.have.value', 'raghu@#1');
-    cy.url().should('not.contain', '/index.html');
-  });
+Cypress.Commands.add("verifyFunctionalityOfCancelButton",()=> {
+  login.getLoginUrl()
+  login.getUsername().clear().type(loginData.username).should('have.value',loginData.username)
+  login.getPassword().clear().type(loginData.password).should('have.value',loginData.password)
+  login.getCancel().click()
+  login.getUsername().should('not.have.value',loginData.username)
+  login.getPassword().should('not.have.value',loginData.password)
+  cy.url().should('not.contain','/index.html')
+})
