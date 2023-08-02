@@ -19,7 +19,7 @@ describe("create order end to end scenario",()=> {
  */
 describe("create order end to end scenario for mobile view",()=> {
     beforeEach("login",()=> {
-        cy.loginWithvalidCredentials()
+        cy.loginWithValidCredentials()
         cy.viewport("iphone-6+")
     })
     /**
