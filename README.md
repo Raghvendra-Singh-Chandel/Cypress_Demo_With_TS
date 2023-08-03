@@ -11,4 +11,5 @@ npx cypress open -- headed mode
 
 # set-up server locally
 - Root of the folder open terminal
+- install local server by running command: npm install -g http-server then run
 - run command:  http-server -p 8000
