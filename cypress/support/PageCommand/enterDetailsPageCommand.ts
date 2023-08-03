@@ -1,4 +1,5 @@
 import detailPage from "../PageMethod/detailsPage";
+import * as personDetails from "../../fixtures/details.json"
 
 const details  =  new detailPage()
 
@@ -15,22 +16,6 @@ declare global {
 }
 
 Cypress.Commands.add("fillAllDetailsToProcessedPaymentPage",()=> {
-    const personDetails = {
-        
-            "fullName": "Raghvendra Singh",
-            "email": "rchandel@clanap.com",
-            "phone": "8765675434",
-            "DOB": "2001-12-01",
-            "country": "USA",
-            "city": "London",
-            "zipCode": "123456",
-            "errorMessage" : {
-                "fullName": "Please enter your full name",
-                "email": "Please enter a valid email address",
-                "phone": "Please enter a valid phone number",
-                "zipCode": "Please enter your zip code"
-            }
-        }
     details.getFullNameError().invoke('text').should('contain',personDetails.errorMessage.fullName)
     details.getfullName().type(personDetails.fullName).should('have.value',personDetails.fullName)
     details.getEmail().type(personDetails.email).should('have.value',personDetails.email)

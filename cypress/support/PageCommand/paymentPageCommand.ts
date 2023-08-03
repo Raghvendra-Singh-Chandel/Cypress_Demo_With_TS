@@ -1,4 +1,5 @@
 import payment from "../PageMethod/payment";
+import * as data from "../../fixtures/paymentDetails.json"
 
 const pay             =    new payment()
 
@@ -14,13 +15,6 @@ declare global {
   }
 }
 Cypress.Commands.add("fillPaymentDetailsAndCompletePayment",()=> {
-    const data = {
-        "cardNumber": "1234123412341234",
-        "cardHolderName":"Raghvendra Singh",
-        "expiryDate": "01/29",
-        "cvv":"123"
-    }
-    
     pay.getCardNumber().type(data.cardNumber).should("have.value",data.cardNumber)
     pay.getCardHolderName().type(data.cardHolderName).should("have.value",data.cardHolderName)
     pay.getExpiryDate().type(data.expiryDate).should("have.value",data.expiryDate)
