@@ -3,7 +3,7 @@ function login() {
     const password = document.getElementById("password").value;
     const errorDiv = document.getElementById("error");
     // Simulate a successful login (replace with your own authentication logic)
-    if (username === "raghu" && password === "raghu@#1") {
+    if (username === "ClanAp" && password === "ClanAp@#1") {
       // Navigate to another page (replace 'dashboard.html' with your desired page)
       window.location.href = "index.html";
 

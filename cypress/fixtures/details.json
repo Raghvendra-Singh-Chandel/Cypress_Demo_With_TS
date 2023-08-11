@@ -1,11 +1,12 @@
 {
-    "fullName": "Raghvendra Singh",
-    "email": "rchandel@clanap.com",
+    "fullName": "Test QA",
+    "email": "test@clanap.com",
     "phone": "8765675434",
     "DOB": "2001-12-01",
     "country": "USA",
     "city": "London",
     "zipCode": "123456",
+    
     "errorMessage" : {
         "fullName": "Please enter your full name",
         "email": "Please enter a valid email address",
