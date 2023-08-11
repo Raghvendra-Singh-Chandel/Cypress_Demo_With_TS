@@ -6,6 +6,7 @@
     "country": "USA",
     "city": "London",
     "zipCode": "123456",
+    
     "errorMessage" : {
         "fullName": "Please enter your full name",
         "email": "Please enter a valid email address",
